@@ -1,6 +1,4 @@
 name: GitHub Actions Test
-ENSE701 Worksheet 4 Assessment 1A
-S2 2024 v3 Pg 27 of 32Jim Buchan/Tony Clear/Mark Alexander/Jingchang Chen
 on:
 push:
 branches: [ "main", "develop" ]
