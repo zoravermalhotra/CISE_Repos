@@ -1,0 +1,24 @@
+name: GitHub Actions Vercel Preview
+env:
+VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+on:
+workflow_dispatch:
+jobs:
+Test:
+uses: zoravermalhotra/CISE_Repos/.github/workflows/test.yml@develop
+Deploy-Preview:
+runs-on: ubuntu-latest
+needs: [test]
+steps:
+- uses: actions/checkout@v3
+- name: Install Vercel CLI
+run: npm install --global vercel@canary
+- name: Pull Vercel Environment Information
+run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+ENSE701 Worksheet 4 Assessment 1A
+S2 2024 v3 Pg 28 of 32Jim Buchan/Tony Clear/Mark Alexander/Jingchang Chen
+- name: Build Project Artifacts
+run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+- name: Deploy Project Artifacts to Vercel
+run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
