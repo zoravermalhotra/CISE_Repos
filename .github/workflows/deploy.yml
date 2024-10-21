@@ -10,7 +10,7 @@ on:
 jobs:
     Test:
         if: github.event.pull_request.merged == true
-        uses: zoravermalhotra/CISE_Repos/.github/workflows/test.yml@develop
+        uses: zoravermalhotra/CISE_Repos/.github/workflows/test.yml@Development
     Deploy-Production:
         if: github.event.pull_request.merged == true
         runs-on: ubuntu-latest

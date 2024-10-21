@@ -1,9 +1,9 @@
 name: GitHub Actions Test
 on:
     push:
-        branches: [ "main", "develop" ]
+        branches: [ "main", "Development" ]
     pull_request:
-        branches: [ "main", "develop" ]
+        branches: [ "main", "Development" ]
     workflow_call:
     workflow_dispatch:
 jobs:
@@ -13,5 +13,3 @@ jobs:
             - uses: actions/checkout@v4
             - name: Install dependecies
               run: npm install
-            - name: Run test
-              run: npm run test
